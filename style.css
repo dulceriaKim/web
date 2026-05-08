@@ -1,0 +1,245 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(245, 175, 185);
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: rgb(180, 50, 90);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: clamp(1.4rem, 5vw, 2.5rem);
+    color: rgb(20, 20, 20);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#menu-toggle, .hamburger {
+    display: none;
+}
+
+
+.slider {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    animation: sliderAnim 20s infinite;
+}
+
+.slider img:nth-child(1) { animation-delay: 0s; }
+.slider img:nth-child(2) { animation-delay: 4s; }
+.slider img:nth-child(3) { animation-delay: 8s; }
+.slider img:nth-child(4) { animation-delay: 12s; }
+.slider img:nth-child(5) { animation-delay: 16s; }
+
+@keyframes sliderAnim {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    20% { opacity: 1; }
+    25% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+
+main {
+    padding: 20px 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+
+.presentacion, .horario ul {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    list-style: none;
+}
+
+.mision-contenido {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.mision-texto {
+    flex: 1;
+    min-width: 280px;
+}
+
+.mision-texto h3 {
+    color: rgb(100, 20, 50);
+    margin-bottom: 10px;
+}
+
+.mision-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.valor-item {
+    background-color: rgba(255, 255, 255, 0.35);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.valor-item h3 {
+    color: rgb(100, 20, 50);
+    margin-bottom: 10px;
+}
+
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+
+.mapa {
+    margin-bottom: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 5px solid white;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 400px;
+    display: block;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.red-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.red-social:hover {
+    background-color: #25D366;
+    color: white;
+}
+
+.red-social img {
+    width: 30px;
+}
+
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(180, 50, 90);
+        padding: 20px;
+        text-align: center;
+    }
+
+    #menu-toggle:checked ~ ul {
+        display: flex;
+    }
+
+    .slider { height: 250px; }
+    
+    .mision-contenido {
+        flex-direction: column;
+    }
+}
